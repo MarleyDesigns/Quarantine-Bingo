@@ -1,0 +1,92 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic&display=swap');
+
+body {
+    /*background-color: cadetblue;
+    url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQpGz1xGRbbMTBDJ1z_SVeFNGQnMVnaJrP-M-qLi3PwWH1QZGLF&usqp=CAU)
+    */
+    background-image: url(https://images.unsplash.com/photo-1585057541480-b6f1be932974?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1512&q=80);
+}
+button.clicked {
+    background-color:#A6D42C;
+   
+    /*#71C23B*/
+}
+
+button {
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color: #8CC5DB;
+
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    padding: 30px 30px;
+    /*width: 120px; */
+    width: 9em;
+    height: 9em;
+    margin: 3px;
+    text-align: center; 
+}
+#buttonDiv {
+    text-align: center;
+    padding: 25px;
+}
+#check {
+    background-color: #866EB9;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    
+}
+button:hover {
+    color: yellow;
+}
+#bingoTable {
+    background-color: black;
+    margin: auto;
+    width: 50%;
+    padding: 25px;
+}
+h1 {
+    text-align: center;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 100px;
+    margin: 25px;
+    margin-bottom: 0px;
+    /*background-color: #959FCF;
+    #9FC8AE*/
+    background-color: rgb(166, 212, 44, 0.5);
+    
+    
+}
+h2 {
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 80px;
+    background-color: rgb(166, 212, 44, 0.5);
+    
+}
+img {
+    width: 200px;
+}
+#memes {
+    padding-bottom: 25px;
+}
+
+
+    /* 
+    column-width: 20%; 
+    table-layout: fixed;
+    column-gap: 40px;
+    ,ap 
+    https://images.unsplash.com/photo-1584931423298-c576fda54bd2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80
+
+    empty grocery store 
+    https://images.unsplash.com/photo-1584472376859-889e77a8ccac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60
+    phone with oh no 
+    https://images.unsplash.com/photo-1585435516476-bd92c7d4d9b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60
+    Ask about column gap between first and second column different??
+
+*/

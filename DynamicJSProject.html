@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Dynamic JS Project</title>
+        <link rel="stylesheet" type="text/css" href="D_JS_style.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            // Ask about column gap between first and second column different??
+            // does .find not work in columns??
+
+            // .hide and show is not working to hide things 
+            // what is the best way to handle showing the message?
+            //want to use animate() method
+            var win = "congrats";
+            var bingo = 0;
+            var blackout = false;
+
+            $(document).ready(function() {
+                console.log("ready");
+                $("#messageDiv").hide();
+                
+
+                $("button").click(function() 
+                {
+                    console.log("clicked button")
+                    $(this).toggleClass("clicked")
+                    console.log("color change")
+                }),
+
+                $("#check").click(function(){
+                    $("#check").hide();
+                    // Check for blackout 
+                    if ($("#A1").hasClass("clicked") && $("#A2").hasClass("clicked") 
+                    && $("#A3").hasClass("clicked") && $("#A4").hasClass("clicked") 
+                    && $("#A5").hasClass("clicked") && $("#B1").hasClass("clicked") 
+                    && $("#B2").hasClass("clicked") && $("#B3").hasClass("clicked") 
+                    && $("#B4").hasClass("clicked") && $("#B5").hasClass("clicked") 
+                    && $("#C1").hasClass("clicked") && $("#C2").hasClass("clicked") 
+                    && $("#C3").hasClass("clicked") && $("#C4").hasClass("clicked") 
+                    && $("#C5").hasClass("clicked") && $("#D1").hasClass("clicked") 
+                    && $("#D2").hasClass("clicked") && $("#D3").hasClass("clicked") 
+                    && $("#D4").hasClass("clicked") && $("#D5").hasClass("clicked") 
+                    && $("#E1").hasClass("clicked") && $("#E2").hasClass("clicked") 
+                    && $("#E3").hasClass("clicked") && $("#E4").hasClass("clicked") 
+                    && $("#E5").hasClass("clicked"))
+                    {
+                        blackout = true;
+                    }
+
+                    // row 1
+                    if ($("#A1").hasClass("clicked") && $("#A2").hasClass("clicked") 
+                    && $("#A3").hasClass("clicked") &&  $("#A4").hasClass("clicked") 
+                    &&  $("#A5").hasClass("clicked")) {
+                        bingo++;
+                    }
+                    // row 2
+                    if ($("#B1").hasClass("clicked") && $("#B2").hasClass("clicked") 
+                    && $("#B3").hasClass("clicked") &&  $("#B4").hasClass("clicked") 
+                    &&  $("#B5").hasClass("clicked")) {
+                        bingo++;
+                    }
+                    // row 3
+                    if ($("#C1").hasClass("clicked") && $("#C2").hasClass("clicked") 
+                    && $("#C3").hasClass("clicked") &&  $("#C4").hasClass("clicked") 
+                    &&  $("#C5").hasClass("clicked")) {
+                        bingo++;
+                    }
+                    //row 4
+                    if ($("#D1").hasClass("clicked") && $("#D2").hasClass("clicked") 
+                    && $("#D3").hasClass("clicked") &&  $("#D4").hasClass("clicked") 
+                    &&  $("#D5").hasClass("clicked")) {
+                        bingo++;
+                    }
+                    //row 5
+                    if ($("#E1").hasClass("clicked") && $("#E2").hasClass("clicked") 
+                    && $("#E3").hasClass("clicked") &&  $("#E4").hasClass("clicked") 
+                    &&  $("#E5").hasClass("clicked")) {
+                        bingo++;
+                    }
+
+
+                    // col 1
+                    if ($("#A1").hasClass("clicked") && $("#B1").hasClass("clicked") 
+                    && $("#C1").hasClass("clicked") &&  $("#D1").hasClass("clicked") 
+                    &&  $("#E1").hasClass("clicked")) {
+                        bingo++;
+                    }
+                    // col 2
+                    if ($("#A2").hasClass("clicked") && $("#B2").hasClass("clicked") 
+                    && $("#C2").hasClass("clicked") &&  $("#D2").hasClass("clicked") 
+                    &&  $("#E2").hasClass("clicked")) {
+                        bingo++;
+                    }
+                    // col 3
+                    if ($("#A3").hasClass("clicked") && $("#B3").hasClass("clicked") 
+                    && $("#C3").hasClass("clicked") &&  $("#D3").hasClass("clicked") 
+                    &&  $("#E3").hasClass("clicked")) {
+                        bingo++;
+                    }
+                    // col 4
+                    if ($("#A4").hasClass("clicked") && $("#B4").hasClass("clicked") 
+                    && $("#C4").hasClass("clicked") &&  $("#D4").hasClass("clicked") 
+                    &&  $("#E4").hasClass("clicked")) {
+                        bingo++;
+                    }
+                    // col 5
+                    if ($("#A5").hasClass("clicked") && $("#B5").hasClass("clicked") 
+                    && $("#C5").hasClass("clicked") &&  $("#D5").hasClass("clicked") 
+                    &&  $("#E5").hasClass("clicked")) {
+                        bingo++;
+                    }
+
+                    // diagonal right left
+                    if ($("#A1").hasClass("clicked") && $("#B2").hasClass("clicked") 
+                    && $("#C3").hasClass("clicked") &&  $("#D4").hasClass("clicked") 
+                    &&  $("#E5").hasClass("clicked")) {
+                        bingo++;
+                    }
+                    // diagonal left right 
+                    if ($("#A5").hasClass("clicked") && $("#B4").hasClass("clicked") 
+                    && $("#C3").hasClass("clicked") &&  $("#D2").hasClass("clicked") 
+                    &&  $("#E1").hasClass("clicked")) {
+                        bingo++;
+                    }
+
+
+                    // set output 
+                    if(blackout)
+                    {
+                        $("#messageDiv").fadeIn("slow", function() {
+                            // animation complete
+                        });
+                        $("#message").html("<h2>Blackout!\nHave some quaranmemes...</h2>");
+                    }
+                    else if(bingo > 0)
+                    {
+                        $("#messageDiv").fadeIn("slow", function() {
+                            // animation complete
+                        });
+                        $("#message").html("<h2>Bingo!\nHave some quaranmemes...<h2>");
+                    }
+                    else 
+                    {
+                        $("#messageDiv").fadeIn("slow", function() {
+                            // animation complete
+                        });
+                        $("#message").html("<h2> No Bingo :(\nAt least there are memes.<h2>")
+                    }
+                
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Quarantine Bingo</h1>
+
+        <div id="buttonDiv">
+            <button id="check">Check</button>
+        </div>
+        
+        <div id="messageDiv">
+            <span id="message"></span>
+            <img src="https://lostnloveco.com/wp-content/uploads/2020/03/coronavirus-meme-lostnloveco-1.png" alt="online school meme">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTDxrdTnIfV3hDZO6rG7PBQnHKN2Tj8Gp9nQvk-1EM9F8zyxKt-&usqp=CAU" alt="daily lifestyle meme">
+            <img src="https://pbs.twimg.com/media/ET576f9U8AAHE-s?format=jpg&name=medium" alt="spiderman meme">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQpGz1xGRbbMTBDJ1z_SVeFNGQnMVnaJrP-M-qLi3PwWH1QZGLF&usqp=CAU" alt="gaston cleaning meme">
+            <img src="https://www.instagram.com/p/B9tFLYCD-76/media/?size=l" alt="jumangji meme">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEAN7N6BJQkBhV4_mgvvPLr8JCo9NyVPIHrly3O2uLe9sdfi6U&usqp=CAU" alt="office meme">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTpozlwqNRGIU3NZM78uFA8cUTfBf29u_kHHEPSBE3TFe8ARmpT&usqp=CAU" alt="mandolorian">
+        </div>
+
+        <table id="bingoTable"> 
+            <tr id="row1"> 
+                <td><button id="A1">Used Zoom</button><td>
+                <td><button id="A2">Sat down for too long</button></td>
+                <td><button id="A3">Computer overheated</button></td>
+                <td><button id="A4">Used hand sanitizer</button></td>
+                <td><button id="A5">Binged watched a TV show</button></td>
+            </tr>
+
+            <tr id="row2">
+                <td><button id="B1">Worn the same sweatpants for days</button><td>
+                <td><button id="B2">Ordered delivery/ takeout</button></td>
+                <td><button id="B3">Played Minecraft</button></td>
+                <td><button id="B4">Facetimed friends or family</button></td>
+                <td><button id="B5">Stayed in pajamas all day</button></td>
+            </tr>
+
+            <tr id="row3">
+                <td><button id="C1">Existential crisis</button><td>
+                <td><button id="C2">Lost track of what day it is </button></td>
+                <td><button id="C3">Free (school’s canceled anyway)</button></td>
+                <td><button id="C4">Served as Home IT person</button></td>
+                <td><button id="C5">Home improvement project</button></td>
+            </tr>
+
+            <tr id="row4">
+                <td><button id="D1">Ran out of toilet paper</button><td>
+                <td><button id="D2">Looked at coronavirus memes</button></td>
+                <td><button id="D3">Movie marathon</button></td>
+                <td><button id="D4">Played an online game</button></td>
+                <td><button id="D5">Aggressive snacking</button></td>
+            </tr>
+
+            <tr id="row5">
+                <td><button id="E1">Event canceled</button><td>
+                <td><button id="E2">Online Shopping</button></td>
+                <td><button id="E3">Streaming service overloaded</button></td>
+                <td><button id="E4">Haven’t seen a vegetable in a week</button></td>
+                <td><button id="E5">Read a news article about COVID-19</button></td>
+            </tr>
+        </table>
+        
+    </body>
+</html>
